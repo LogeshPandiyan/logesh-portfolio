@@ -1,8 +1,8 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import SectionHeader from '../common/SectionHeader';
 import ProjectModal from '../modals/ProjectModal';
 import { PORTFOLIO_DATA } from '../../constants/portfolioData';
-import { ExternalLink, Sparkles, FolderGit, ArrowRight } from 'lucide-react';
+import { FolderGit, ArrowRight } from 'lucide-react';
 import { GithubIcon } from '../common/Icons';
 
 const Projects = () => {
@@ -18,7 +18,7 @@ const Projects = () => {
 
   return (
     <section id="projects" className="py-20 relative">
-      <div className="max-w-[1536px] mx-auto px-6 sm:px-10 lg:px-12">
+      <div className="max-w-[1536px] mx-auto px-4 sm:px-10 lg:px-12">
         
         <SectionHeader
           badge="Featured Portfolio"
@@ -28,12 +28,12 @@ const Projects = () => {
         />
 
         {/* Category Filters */}
-        <div className="flex flex-wrap justify-center items-center gap-2 mb-10">
+        <div className="flex flex-wrap justify-center items-center gap-1.5 sm:gap-2 mb-8 sm:mb-10">
           {categories.map((cat) => (
             <button
               key={cat}
               onClick={() => setFilter(cat)}
-              className={`px-4 py-2 rounded-xl text-xs sm:text-sm font-semibold transition-all duration-200 ${
+              className={`px-3 sm:px-4 py-1.5 sm:py-2 rounded-xl text-xs sm:text-sm font-semibold transition-all duration-200 ${
                 filter === cat
                   ? 'bg-cyan-500 text-slate-950 shadow-lg shadow-cyan-500/25 scale-105'
                   : 'bg-slate-800/80 text-slate-300 hover:bg-slate-700 hover:text-white border border-slate-700/60'
@@ -45,7 +45,7 @@ const Projects = () => {
         </div>
 
         {/* Projects Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 sm:gap-6">
           {filteredProjects.map((project) => {
             const visibleTech = project.techStack.slice(0, 4);
             const remainingTech = project.techStack.slice(4);
@@ -53,7 +53,7 @@ const Projects = () => {
             return (
               <div
                 key={project.id}
-                className="bg-slate-900 border border-slate-800 hover:border-cyan-500/40 rounded-2xl p-6 flex flex-col justify-between shadow-xl transition-all duration-300 hover:-translate-y-1 hover:shadow-cyan-950/30 group"
+                className="bg-slate-900 border border-slate-800 hover:border-cyan-500/40 rounded-2xl p-4 sm:p-6 flex flex-col justify-between shadow-xl transition-all duration-300 hover:-translate-y-1 hover:shadow-cyan-950/30 group"
               >
                 <div className="space-y-4">
                   {/* Header Badge & Category */}

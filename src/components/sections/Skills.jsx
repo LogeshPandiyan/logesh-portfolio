@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import SectionHeader from '../common/SectionHeader';
 import { PORTFOLIO_DATA } from '../../constants/portfolioData';
 import { Code, Database, Server, Wrench, CheckCircle2, Sparkles } from 'lucide-react';
@@ -30,7 +30,7 @@ const Skills = () => {
 
   return (
     <section id="skills" className="py-20 relative">
-      <div className="max-w-[1536px] mx-auto px-6 sm:px-10 lg:px-12">
+      <div className="max-w-[1536px] mx-auto px-4 sm:px-10 lg:px-12">
         
         <SectionHeader
           badge="Technical Skills"
@@ -40,12 +40,12 @@ const Skills = () => {
         />
 
         {/* Tab Filters */}
-        <div className="flex flex-wrap justify-center items-center gap-3.5 sm:gap-5 mb-10">
+        <div className="flex flex-wrap justify-center items-center gap-2 sm:gap-5 mb-8 sm:mb-10">
           {categories.map((cat) => (
             <button
               key={cat.id}
               onClick={() => setActiveTab(cat.id)}
-              className={`flex items-center gap-2 px-4 py-2 rounded-xl text-xs sm:text-sm font-semibold transition-all duration-200 ${
+              className={`flex items-center gap-1.5 sm:gap-2 px-3 sm:px-4 py-1.5 sm:py-2 rounded-xl text-xs sm:text-sm font-semibold transition-all duration-200 ${
                 activeTab === cat.id
                   ? 'bg-cyan-500 text-slate-950 shadow-lg shadow-cyan-500/25 scale-105'
                   : 'bg-slate-800/80 text-slate-300 hover:bg-slate-700 hover:text-white border border-slate-700/60'
@@ -58,11 +58,11 @@ const Skills = () => {
         </div>
 
         {/* Skills Cards Grid */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-5">
           {displayedSkills.map((skill, idx) => (
             <div
               key={idx}
-              className="bg-slate-900 border border-slate-800 hover:border-cyan-500/40 rounded-xl p-5 transition-all duration-300 hover:shadow-xl hover:shadow-cyan-950/20 group"
+              className="bg-slate-900 border border-slate-800 hover:border-cyan-500/40 rounded-xl p-4 sm:p-5 transition-all duration-300 hover:shadow-xl hover:shadow-cyan-950/20 group"
             >
               <div className="flex items-center justify-between mb-3.5">
                 {/* Left: Aqua Dot + Skill Name */}

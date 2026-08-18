@@ -1,5 +1,5 @@
-import React, { useEffect } from 'react';
-import { X, ExternalLink, CheckCircle2, Layers, Cpu, Sparkles } from 'lucide-react';
+import { useEffect } from 'react';
+import { X, CheckCircle2, Layers, Cpu } from 'lucide-react';
 import { GithubIcon } from '../common/Icons';
 import { getTechIcon } from '../common/TechLogos';
 
@@ -16,9 +16,9 @@ const ProjectModal = ({ project, onClose }) => {
   if (!project) return null;
 
   return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center p-4 sm:p-6 bg-slate-950/80 backdrop-blur-md animate-in fade-in duration-200">
+    <div className="fixed inset-0 z-50 flex items-center justify-center p-3 sm:p-6 bg-slate-950/80 backdrop-blur-md animate-in fade-in duration-200">
       {/* Horizontal Landscape Rectangular Modal Box */}
-      <div className="relative w-full max-w-4xl lg:max-w-5xl bg-slate-900 border border-slate-700/80 rounded-2xl p-5 sm:p-6 shadow-2xl space-y-4 overflow-hidden">
+      <div className="relative w-full max-w-4xl lg:max-w-5xl bg-slate-900 border border-slate-700/80 rounded-2xl p-4 sm:p-6 shadow-2xl space-y-4 overflow-y-auto max-h-[90vh]">
         
         {/* Close Button fitted right in top-right corner */}
         <button

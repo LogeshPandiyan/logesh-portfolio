@@ -1,4 +1,3 @@
-import React from 'react';
 import { 
   FaReact, 
   FaJs, 
@@ -9,7 +8,6 @@ import {
   FaGitAlt, 
   FaDatabase,
   FaUserShield,
-  FaKey
 } from 'react-icons/fa6';
 import { FaPython } from 'react-icons/fa';
 import { 
@@ -101,7 +99,7 @@ export const getTechIcon = (name) => {
     if (n.includes('api')) return <Globe className="w-5 h-5 text-cyan-400" />;
 
     return <Wrench className="w-5 h-5 text-cyan-400" />;
-  } catch (err) {
+  } catch  {
     return <Wrench className="w-5 h-5 text-cyan-400" />;
   }
 };

@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import SectionHeader from '../common/SectionHeader';
 import { PORTFOLIO_DATA } from '../../constants/portfolioData';
 import { Mail, Phone, MapPin, Send, Copy, Check, MessageSquare } from 'lucide-react';
@@ -50,13 +50,14 @@ const Contact = () => {
         window.location.href = `mailto:${personalInfo.email}?subject=${mailSubject}&body=${mailBody}`;
         setSubmitted(true);
       }
-    } catch (err) {
+    } catch {
       // Fallback
       const mailSubject = encodeURIComponent(formData.subject || `Portfolio Inquiry from ${formData.name}`);
       const mailBody = encodeURIComponent(`Hi Logesh,\n\n${formData.message}\n\nFrom: ${formData.name} (${formData.email})`);
       window.location.href = `mailto:${personalInfo.email}?subject=${mailSubject}&body=${mailBody}`;
       setSubmitted(true);
-    } finally {
+    } 
+    finally {
       setIsSubmitting(false);
       setTimeout(() => {
         setSubmitted(false);
@@ -67,7 +68,7 @@ const Contact = () => {
 
   return (
     <section id="contact" className="py-20 relative">
-      <div className="max-w-[1536px] mx-auto px-6 sm:px-10 lg:px-12">
+      <div className="max-w-[1536px] mx-auto px-4 sm:px-10 lg:px-12">
         
         <SectionHeader
           badge="Get In Touch"
@@ -79,10 +80,10 @@ const Contact = () => {
           
           {/* Contact Details Card */}
           <div className="lg:col-span-5">
-            <div className="bg-slate-900 border border-slate-800 rounded-2xl p-6 sm:p-8 space-y-6 shadow-xl h-full flex flex-col justify-between">
+            <div className="bg-slate-900 border border-slate-800 rounded-2xl p-4 sm:p-8 space-y-6 shadow-xl h-full flex flex-col justify-between">
               <div>
                 <h3 className="text-xl font-bold text-white flex items-center gap-2 mb-2">
-                  <MessageSquare className="w-5 h-5 text-cyan-400" />
+                  <MessageSquare className="w-5 h-5 text-cyan-400 shrink-0" />
                   Contact Information
                 </h3>
                 <p className="text-slate-400 text-xs sm:text-sm leading-relaxed mb-6">
@@ -91,21 +92,21 @@ const Contact = () => {
 
                 <div className="space-y-4">
                   {/* Email Box */}
-                  <div className="p-4 rounded-xl bg-slate-950/60 border border-slate-800 flex items-center justify-between group">
-                    <div className="flex items-center gap-3 overflow-hidden">
+                  <div className="p-3.5 sm:p-4 rounded-xl bg-slate-950/60 border border-slate-800 flex items-center justify-between gap-2 group min-w-0">
+                    <div className="flex items-center gap-2.5 sm:gap-3 min-w-0 flex-1">
                       <div className="p-2.5 rounded-lg bg-cyan-500/10 text-cyan-400 shrink-0">
                         <Mail className="w-5 h-5" />
                       </div>
-                      <div className="overflow-hidden">
+                      <div className="min-w-0 flex-1">
                         <p className="text-xs text-slate-400">Email Address</p>
-                        <p className="text-xs sm:text-sm font-semibold text-white truncate">
+                        <p className="text-xs sm:text-sm font-semibold text-white truncate max-w-full">
                           {personalInfo.email}
                         </p>
                       </div>
                     </div>
                     <button
                       onClick={() => handleCopy(personalInfo.email, 'email')}
-                      className="p-2 rounded-lg bg-slate-800 text-slate-400 hover:text-cyan-400 hover:bg-slate-700 transition"
+                      className="p-2 rounded-lg bg-slate-800 text-slate-400 hover:text-cyan-400 hover:bg-slate-700 transition shrink-0"
                       title="Copy Email"
                     >
                       {copiedType === 'email' ? <Check className="w-4 h-4 text-emerald-400" /> : <Copy className="w-4 h-4" />}
@@ -113,21 +114,21 @@ const Contact = () => {
                   </div>
 
                   {/* Phone Box */}
-                  <div className="p-4 rounded-xl bg-slate-950/60 border border-slate-800 flex items-center justify-between group">
-                    <div className="flex items-center gap-3">
+                  <div className="p-3.5 sm:p-4 rounded-xl bg-slate-950/60 border border-slate-800 flex items-center justify-between gap-2 group min-w-0">
+                    <div className="flex items-center gap-2.5 sm:gap-3 min-w-0 flex-1">
                       <div className="p-2.5 rounded-lg bg-teal-500/10 text-teal-400 shrink-0">
                         <Phone className="w-5 h-5" />
                       </div>
-                      <div>
+                      <div className="min-w-0 flex-1">
                         <p className="text-xs text-slate-400">Phone / WhatsApp</p>
-                        <p className="text-xs sm:text-sm font-semibold text-white">
+                        <p className="text-xs sm:text-sm font-semibold text-white truncate">
                           {personalInfo.phone}
                         </p>
                       </div>
                     </div>
                     <button
                       onClick={() => handleCopy(personalInfo.phone, 'phone')}
-                      className="p-2 rounded-lg bg-slate-800 text-slate-400 hover:text-teal-400 hover:bg-slate-700 transition"
+                      className="p-2 rounded-lg bg-slate-800 text-slate-400 hover:text-teal-400 hover:bg-slate-700 transition shrink-0"
                       title="Copy Phone"
                     >
                       {copiedType === 'phone' ? <Check className="w-4 h-4 text-emerald-400" /> : <Copy className="w-4 h-4" />}
@@ -135,13 +136,13 @@ const Contact = () => {
                   </div>
 
                   {/* Location Box */}
-                  <div className="p-4 rounded-xl bg-slate-950/60 border border-slate-800 flex items-center gap-3">
+                  <div className="p-3.5 sm:p-4 rounded-xl bg-slate-950/60 border border-slate-800 flex items-center gap-2.5 sm:gap-3 min-w-0">
                     <div className="p-2.5 rounded-lg bg-blue-500/10 text-blue-400 shrink-0">
                       <MapPin className="w-5 h-5" />
                     </div>
-                    <div>
+                    <div className="min-w-0 flex-1">
                       <p className="text-xs text-slate-400">Location</p>
-                      <p className="text-xs sm:text-sm font-semibold text-white">
+                      <p className="text-xs sm:text-sm font-semibold text-white truncate">
                         {personalInfo.location}
                       </p>
                     </div>

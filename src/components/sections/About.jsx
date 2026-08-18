@@ -1,7 +1,6 @@
-import React from 'react';
 import SectionHeader from '../common/SectionHeader';
 import { PORTFOLIO_DATA } from '../../constants/portfolioData';
-import { ShieldCheck, Server, Cpu, Layout, Award, MapPin, Building2, Mail, CheckCircle } from 'lucide-react';
+import { ShieldCheck, Server, Cpu, Layout, Award, MapPin, Building2, Mail } from 'lucide-react';
 
 const About = () => {
   const { personalInfo } = PORTFOLIO_DATA;
@@ -31,7 +30,7 @@ const About = () => {
 
   return (
     <section id="about" className="py-20 bg-slate-950/60 relative">
-      <div className="max-w-[1536px] mx-auto px-6 sm:px-10 lg:px-12">
+      <div className="max-w-[1536px] mx-auto px-4 sm:px-10 lg:px-12">
         
         <SectionHeader
           badge="About Me"
@@ -43,10 +42,10 @@ const About = () => {
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-stretch">
           
           {/* Main Bio Card */}
-          <div className="lg:col-span-7 bg-slate-900 border border-slate-800 rounded-2xl p-6 sm:p-8 flex flex-col justify-between shadow-xl">
+          <div className="lg:col-span-7 bg-slate-900 border border-slate-800 rounded-2xl p-4 sm:p-8 flex flex-col justify-between shadow-xl">
             <div className="space-y-4">
               <h3 className="text-xl sm:text-2xl font-bold text-white flex items-center gap-2">
-                <Award className="w-6 h-6 text-cyan-400" />
+                <Award className="w-6 h-6 text-cyan-400 shrink-0" />
                 Professional Summary
               </h3>
               <p className="text-slate-300 text-sm sm:text-base leading-relaxed">
@@ -56,33 +55,33 @@ const About = () => {
 
             {/* Location & Quick Details */}
             <div className="mt-8 pt-6 border-t border-slate-800 grid grid-cols-1 sm:grid-cols-3 gap-4">
-              <div className="flex items-center gap-3">
-                <div className="p-2.5 rounded-lg bg-slate-800 text-cyan-400">
+              <div className="flex items-center gap-3 min-w-0">
+                <div className="p-2.5 rounded-lg bg-slate-800 text-cyan-400 shrink-0">
                   <MapPin className="w-4 h-4" />
                 </div>
-                <div>
+                <div className="min-w-0 flex-1">
                   <p className="text-xs text-slate-400">Location</p>
-                  <p className="text-xs font-semibold text-white">Coimbatore, TN</p>
+                  <p className="text-xs font-semibold text-white truncate">Coimbatore, TN</p>
                 </div>
               </div>
 
-              <div className="flex items-center gap-3">
-                <div className="p-2.5 rounded-lg bg-slate-800 text-teal-400">
+              <div className="flex items-center gap-3 min-w-0">
+                <div className="p-2.5 rounded-lg bg-slate-800 text-teal-400 shrink-0">
                   <Building2 className="w-4 h-4" />
                 </div>
-                <div>
+                <div className="min-w-0 flex-1">
                   <p className="text-xs text-slate-400">Current Role</p>
-                  <p className="text-xs font-semibold text-white">MERN Stack Developer</p>
+                  <p className="text-xs font-semibold text-white truncate">MERN Stack Developer</p>
                 </div>
               </div>
 
-              <div className="flex items-center gap-3">
-                <div className="p-2.5 rounded-lg bg-slate-800 text-blue-400">
+              <div className="flex items-center gap-3 min-w-0">
+                <div className="p-2.5 rounded-lg bg-slate-800 text-blue-400 shrink-0">
                   <Mail className="w-4 h-4" />
                 </div>
-                <div>
+                <div className="min-w-0 flex-1">
                   <p className="text-xs text-slate-400">Email</p>
-                  <p className="text-xs font-semibold text-white truncate max-w-[140px]" title={personalInfo.email}>
+                  <p className="text-xs font-semibold text-white truncate max-w-full" title={personalInfo.email}>
                     {personalInfo.email}
                   </p>
                 </div>

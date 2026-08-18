@@ -1,4 +1,4 @@
-import React from 'react';
+
 
 const SectionHeader = ({ badge, title, highlight, subtitle }) => {
   return (
@@ -9,7 +9,7 @@ const SectionHeader = ({ badge, title, highlight, subtitle }) => {
           {badge}
         </span>
       )}
-      <h2 className="text-3xl md:text-4xl font-extrabold tracking-tight text-white">
+      <h2 className="text-2xl sm:text-3xl md:text-4xl font-extrabold tracking-tight text-white">
         {title} <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 via-teal-400 to-blue-500">{highlight}</span>
       </h2>
       {subtitle && (

@@ -1,7 +1,6 @@
-import React from 'react';
 import SectionHeader from '../common/SectionHeader';
 import { PORTFOLIO_DATA } from '../../constants/portfolioData';
-import { Briefcase, Calendar, MapPin, CheckCircle2, ArrowRight, Building2 } from 'lucide-react';
+import { Briefcase, Calendar, MapPin, CheckCircle2, Building2 } from 'lucide-react';
 import { getTechIcon } from '../common/TechLogos';
 
 const Experience = () => {
@@ -9,7 +8,7 @@ const Experience = () => {
 
   return (
     <section id="experience" className="py-20 bg-slate-950/60 relative">
-      <div className="max-w-[1536px] mx-auto px-6 sm:px-10 lg:px-12">
+      <div className="max-w-[1536px] mx-auto px-4 sm:px-10 lg:px-12">
         
         <SectionHeader
           badge="Career Journey"
@@ -22,17 +21,17 @@ const Experience = () => {
           {experience.map((exp, idx) => (
             <div
               key={idx}
-              className="relative bg-slate-900 border border-slate-800 hover:border-cyan-500/40 rounded-2xl p-6 sm:p-8 shadow-xl transition-all duration-300 group"
+              className="relative bg-slate-900 border border-slate-800 hover:border-cyan-500/40 rounded-2xl p-4 sm:p-8 shadow-xl transition-all duration-300 group"
             >
               {/* Top Row: Role, Type, Period, Company & Location */}
               <div className="pb-6 border-b border-slate-800 space-y-3">
                 {/* Row 1: Full-time Type Badge (Left) & Period Badge (Right) */}
-                <div className="flex items-center justify-between gap-4">
-                  <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-semibold bg-cyan-500/10 text-cyan-400 border border-cyan-500/20">
+                <div className="flex flex-wrap items-center justify-between gap-2 sm:gap-4">
+                  <div className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-[11px] sm:text-xs font-semibold bg-cyan-500/10 text-cyan-400 border border-cyan-500/20">
                     <Briefcase className="w-3.5 h-3.5" />
                     {exp.type}
                   </div>
-                  <span className="flex items-center gap-1.5 bg-slate-800 px-3 py-1.5 rounded-lg border border-slate-700 text-cyan-300 font-semibold text-xs font-mono">
+                  <span className="flex items-center gap-1.5 bg-slate-800 px-2.5 sm:px-3 py-1 sm:py-1.5 rounded-lg border border-slate-700 text-cyan-300 font-semibold text-[11px] sm:text-xs font-mono">
                     <Calendar className="w-3.5 h-3.5" />
                     {exp.period}
                   </span>

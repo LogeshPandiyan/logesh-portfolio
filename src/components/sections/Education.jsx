@@ -1,14 +1,13 @@
-import React from 'react';
 import SectionHeader from '../common/SectionHeader';
 import { PORTFOLIO_DATA } from '../../constants/portfolioData';
-import { GraduationCap, Calendar, Award, BookOpen } from 'lucide-react';
+import { GraduationCap, Calendar, BookOpen } from 'lucide-react';
 
 const Education = () => {
   const { education } = PORTFOLIO_DATA;
 
   return (
     <section id="education" className="py-20 bg-slate-950/60 relative">
-      <div className="max-w-[1536px] mx-auto px-6 sm:px-10 lg:px-12">
+      <div className="max-w-[1536px] mx-auto px-4 sm:px-10 lg:px-12">
         
         <SectionHeader
           badge="Academic Background"
@@ -17,11 +16,11 @@ const Education = () => {
           subtitle="Strong foundation in Computer Science, Data Structures, Algorithms, and Software Engineering."
         />
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-5 sm:gap-6">
           {education.map((edu, idx) => (
             <div
               key={idx}
-              className="bg-slate-900 border border-slate-800 hover:border-cyan-500/40 rounded-2xl p-6 flex flex-col justify-between shadow-xl transition-all duration-300 hover:shadow-cyan-950/20 group relative overflow-hidden"
+              className="bg-slate-900 border border-slate-800 hover:border-cyan-500/40 rounded-2xl p-4 sm:p-6 flex flex-col justify-between shadow-xl transition-all duration-300 hover:shadow-cyan-950/20 group relative overflow-hidden"
             >
               <div className="space-y-4">
                 {/* Header Row: Graduation Cap Icon (Left) & Score Badge (Right) */}
