@@ -41,52 +41,63 @@ const About = () => {
 
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-stretch">
           
-          {/* Main Bio Card */}
-          <div className="lg:col-span-7 bg-slate-900 border border-slate-800 rounded-2xl p-4 sm:p-8 flex flex-col justify-between shadow-xl">
-            <div className="space-y-4">
-              <h3 className="text-xl sm:text-2xl font-bold text-white flex items-center gap-2">
-                <Award className="w-6 h-6 text-cyan-400 shrink-0" />
-                Professional Summary
-              </h3>
-              <p className="text-slate-300 text-sm sm:text-base leading-relaxed">
-                {personalInfo.bio}
+          {/* Left Column: 2 Separate Cards (Professional Summary + Quick Details) */}
+          <div className="lg:col-span-7 flex flex-col justify-between gap-4">
+            
+            {/* Card 1: Professional Summary */}
+            <div className="bg-slate-900 border border-slate-800 rounded-2xl p-5 sm:p-7 shadow-xl flex-1 flex flex-col justify-between">
+              <div className="space-y-3">
+                <h3 className="text-xl sm:text-2xl font-bold text-white flex items-center gap-2">
+                  <Award className="w-6 h-6 text-cyan-400 shrink-0" />
+                  Professional Summary
+                </h3>
+                <p className="text-slate-200 text-sm sm:text-base leading-relaxed">
+                  👋 <strong className="text-white font-bold">Hi, I'm Logesh P</strong>, Computer Science Graduate and Associate MERN Stack Developer with hands-on experience building scalable, secure, and production-oriented full-stack web applications. Skilled in <span className="text-cyan-400 font-bold">React.js, JavaScript, Node.js, Express.js, and MongoDB</span>, with practical experience developing RESTful APIs, responsive user interfaces, authentication and authorization systems, and <span className="text-cyan-400 font-bold">Role-Based Access Control (RBAC)</span>.
+                </p>
+              </div>
+
+              <p className="text-slate-300 text-sm sm:text-base leading-relaxed pt-3 lg:pt-4 border-t border-slate-800/60 mt-3 lg:mt-4">
+                Experienced in designing and developing real-world applications such as <strong className="text-white font-semibold">Digital Document Management Systems (DSMS)</strong> and <strong className="text-white font-semibold">Project Management Systems (PMS)</strong>, focusing on clean architecture, reusable components, efficient API integration, data management, and maintainable code. Strong understanding of modern React development, state management, API handling, and full-stack application workflows, with a continuous focus on improving code quality, scalability, and user experience.
               </p>
             </div>
 
-            {/* Location & Quick Details */}
-            <div className="mt-8 pt-6 border-t border-slate-800 grid grid-cols-1 sm:grid-cols-3 gap-4">
-              <div className="flex items-center gap-3 min-w-0">
-                <div className="p-2.5 rounded-lg bg-slate-800 text-cyan-400 shrink-0">
-                  <MapPin className="w-4 h-4" />
+            {/* Card 2: Quick Location & Role Details Box */}
+            <div className="bg-slate-900 border border-slate-800 rounded-2xl p-5 sm:p-6 shadow-xl">
+              <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
+                <div className="flex items-center gap-3 min-w-0">
+                  <div className="p-2.5 rounded-xl bg-slate-800 text-cyan-400 shrink-0 border border-slate-700/60">
+                    <MapPin className="w-4 h-4" />
+                  </div>
+                  <div className="min-w-0 flex-1">
+                    <p className="text-xs text-slate-400">Location</p>
+                    <p className="text-xs sm:text-sm font-semibold text-white truncate">Coimbatore, TN</p>
+                  </div>
                 </div>
-                <div className="min-w-0 flex-1">
-                  <p className="text-xs text-slate-400">Location</p>
-                  <p className="text-xs font-semibold text-white truncate">Coimbatore, TN</p>
-                </div>
-              </div>
 
-              <div className="flex items-center gap-3 min-w-0">
-                <div className="p-2.5 rounded-lg bg-slate-800 text-teal-400 shrink-0">
-                  <Building2 className="w-4 h-4" />
+                <div className="flex items-center gap-3 min-w-0">
+                  <div className="p-2.5 rounded-xl bg-slate-800 text-teal-400 shrink-0 border border-slate-700/60">
+                    <Building2 className="w-4 h-4" />
+                  </div>
+                  <div className="min-w-0 flex-1">
+                    <p className="text-xs text-slate-400">Current Role</p>
+                    <p className="text-xs sm:text-sm font-semibold text-white truncate">MERN Stack Developer</p>
+                  </div>
                 </div>
-                <div className="min-w-0 flex-1">
-                  <p className="text-xs text-slate-400">Current Role</p>
-                  <p className="text-xs font-semibold text-white truncate">MERN Stack Developer</p>
-                </div>
-              </div>
 
-              <div className="flex items-center gap-3 min-w-0">
-                <div className="p-2.5 rounded-lg bg-slate-800 text-blue-400 shrink-0">
-                  <Mail className="w-4 h-4" />
-                </div>
-                <div className="min-w-0 flex-1">
-                  <p className="text-xs text-slate-400">Email</p>
-                  <p className="text-xs font-semibold text-white truncate max-w-full" title={personalInfo.email}>
-                    {personalInfo.email}
-                  </p>
+                <div className="flex items-center gap-3 min-w-0">
+                  <div className="p-2.5 rounded-xl bg-slate-800 text-blue-400 shrink-0 border border-slate-700/60">
+                    <Mail className="w-4 h-4" />
+                  </div>
+                  <div className="min-w-0 flex-1">
+                    <p className="text-xs text-slate-400">Email</p>
+                    <p className="text-xs sm:text-sm font-semibold text-white truncate max-w-full" title={personalInfo.email}>
+                      {personalInfo.email}
+                    </p>
+                  </div>
                 </div>
               </div>
             </div>
+
           </div>
 
           {/* Pillars Grid */}
@@ -94,10 +105,10 @@ const About = () => {
             {pillars.map((pillar, idx) => (
               <div
                 key={idx}
-                className="bg-slate-900/80 border border-slate-800 hover:border-cyan-500/40 rounded-xl p-5 transition-all duration-300 hover:shadow-lg hover:shadow-cyan-950/20 group"
+                className="bg-slate-900/80 border border-slate-800 hover:border-cyan-500/40 rounded-xl p-5 transition-all duration-300 hover:shadow-lg hover:shadow-cyan-950/20 group flex flex-col justify-center"
               >
-                <div className="flex items-start gap-4">
-                  <div className="p-3 rounded-xl bg-slate-800/80 group-hover:scale-110 transition-transform">
+                <div className="flex items-center gap-4">
+                  <div className="p-3 rounded-xl bg-slate-800/80 group-hover:scale-110 transition-transform shrink-0">
                     {pillar.icon}
                   </div>
                   <div className="space-y-1">

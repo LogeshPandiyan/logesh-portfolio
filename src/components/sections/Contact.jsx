@@ -24,19 +24,24 @@ const Contact = () => {
     setIsSubmitting(true);
 
     try {
-      // Free Web3Forms API endpoint (Delivers directly to logeshlp25@gmail.com)
-      const response = await fetch('https://api.web3forms.com/submit', {
+      const apiKey = import.meta.env.VITE_WEB3FORMS_ACCESS_KEY;
+      const apiUrl = import.meta.env.VITE_WEB3FORMS_API_URL;
+
+      // Web3Forms API with customized email headers & direct reply-to
+      const response = await fetch(apiUrl, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
           Accept: 'application/json'
         },
         body: JSON.stringify({
-          access_key: 'YOUR_WEB3FORMS_ACCESS_KEY', // Get 1-click free key at web3forms.com
+          access_key: apiKey,
+          from_name: 'Logesh Portfolio Website',
+          subject: formData.subject ? `[Portfolio Inquiry] ${formData.subject}` : `⚡ New Portfolio Message from ${formData.name}`,
           name: formData.name,
           email: formData.email,
-          subject: formData.subject || `New Portfolio Message from ${formData.name}`,
-          message: formData.message
+          message: formData.message,
+          replyto: formData.email
         })
       });
 
@@ -44,7 +49,7 @@ const Contact = () => {
       if (result.success) {
         setSubmitted(true);
       } else {
-        // Fallback: Open mailto directly if API key is pending
+        // Fallback: Open mailto directly if network fails
         const mailSubject = encodeURIComponent(formData.subject || `Portfolio Inquiry from ${formData.name}`);
         const mailBody = encodeURIComponent(`Hi Logesh,\n\n${formData.message}\n\nFrom: ${formData.name} (${formData.email})`);
         window.location.href = `mailto:${personalInfo.email}?subject=${mailSubject}&body=${mailBody}`;
@@ -180,9 +185,9 @@ const Contact = () => {
                 <div className="w-16 h-16 rounded-full bg-emerald-500/20 text-emerald-400 flex items-center justify-center mx-auto border border-emerald-500/40">
                   <Check className="w-8 h-8" />
                 </div>
-                <h3 className="text-2xl font-bold text-white">Opening Email Client...</h3>
+                <h3 className="text-2xl font-bold text-white">Message Sent Successfully!</h3>
                 <p className="text-slate-400 text-sm max-w-md mx-auto">
-                  Thank you, {formData.name}! Your message has been prepared for <strong className="text-cyan-400">logeshlp25@gmail.com</strong>.
+                  Thank you, <strong className="text-white">{formData.name}</strong>! Your message has been sent directly to <strong className="text-cyan-400">logeshlp25@gmail.com</strong>.
                 </p>
               </div>
             ) : (

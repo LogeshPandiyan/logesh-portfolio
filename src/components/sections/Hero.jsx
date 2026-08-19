@@ -7,7 +7,7 @@ const Hero = () => {
   const { personalInfo } = PORTFOLIO_DATA;
 
   return (
-    <section id="hero" className="relative pt-24 pb-16 md:pt-28 md:pb-20 overflow-hidden mt-7">
+    <section id="home" className="relative pt-24 pb-16 md:pt-28 md:pb-20 overflow-hidden mt-7">
       {/* Ambient background glow circles */}
       <div className="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] bg-cyan-500/10 blur-[120px] rounded-full pointer-events-none"></div>
       <div className="absolute top-1/3 right-10 w-72 h-72 bg-blue-600/10 blur-[100px] rounded-full pointer-events-none"></div>
@@ -96,9 +96,6 @@ const Hero = () => {
                       <Terminal className="w-3.5 h-3.5 text-cyan-400 shrink-0" /> developer.config.js
                     </span>
                   </div>
-                  <span className="text-emerald-400 text-[10px] sm:text-[11px] bg-emerald-500/10 px-1.5 sm:px-2 py-0.5 rounded border border-emerald-500/20 shrink-0 whitespace-nowrap">
-                    MERN Senior Arch
-                  </span>
                 </div>
 
                 {/* Code Content */}

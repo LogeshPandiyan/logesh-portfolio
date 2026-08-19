@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import SectionHeader from '../common/SectionHeader';
 import ProjectModal from '../modals/ProjectModal';
 import { PORTFOLIO_DATA } from '../../constants/portfolioData';
@@ -11,6 +11,38 @@ const Projects = () => {
   const [selectedProject, setSelectedProject] = useState(null);
 
   const categories = ['All', 'Frontend', 'Full Stack MERN', 'AI & Web App'];
+
+  // Sync project modal with URL path (/projects/dsms, /projects/pms, etc.)
+  useEffect(() => {
+    const handleUrlSync = () => {
+      const path = window.location.pathname.toLowerCase();
+      if (path.startsWith('/projects/')) {
+        const projId = path.replace('/projects/', '');
+        const foundProj = projects.find((p) => p.id.toLowerCase() === projId);
+        if (foundProj) {
+          setSelectedProject(foundProj);
+        }
+      } else if (path === '/projects') {
+        setSelectedProject(null);
+      }
+    };
+
+    handleUrlSync();
+    window.addEventListener('popstate', handleUrlSync);
+    return () => window.removeEventListener('popstate', handleUrlSync);
+  }, [projects]);
+
+  const handleOpenProject = (project) => {
+    setSelectedProject(project);
+    window.history.pushState(null, '', `/projects/${project.id}`);
+  };
+
+  const handleCloseProject = () => {
+    setSelectedProject(null);
+    if (window.location.pathname.startsWith('/projects/')) {
+      window.history.pushState(null, '', '/projects');
+    }
+  };
 
   const filteredProjects = filter === 'All'
     ? projects
@@ -114,8 +146,8 @@ const Projects = () => {
               {/* Footer Action Buttons */}
               <div className="mt-4 pt-3.5 border-t border-slate-800 flex items-center justify-between">
                 <button
-                  onClick={() => setSelectedProject(project)}
-                  className="inline-flex items-center gap-1.5 text-xs font-bold text-cyan-400 hover:text-cyan-300 transition-colors group/btn"
+                  onClick={() => handleOpenProject(project)}
+                  className="inline-flex items-center gap-1.5 text-xs font-bold text-cyan-400 hover:text-cyan-300 transition-colors group/btn hover:bg-slate-800 rounded-lg p-2"
                 >
                   <span>View Details & Features</span>
                   <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-1 group-hover/btn:translate-x-1 transition-transform duration-200" />
@@ -145,7 +177,7 @@ const Projects = () => {
         {/* Modal Window */}
         <ProjectModal
           project={selectedProject}
-          onClose={() => setSelectedProject(null)}
+          onClose={handleCloseProject}
         />
 
       </div>
